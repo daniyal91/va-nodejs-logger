@@ -32,7 +32,12 @@ app.get('/', function(req,res){
 app.get('/record_log',function(req,res){
 	var message = req.query.msg;
 	var sender = req.query.sender;
-	var msgData = {message: message, sender: sender};
+	var date = new Date();
+	var currentDate = date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
+	var currentTime = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+	var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
+
+	var msgData = {message: message, sender: sender, date: currentDate, time: currentTime, ip: ip};
 
 	fs.readFile("logs/log.json", function (err, data) {
     var json = JSON.parse(data);

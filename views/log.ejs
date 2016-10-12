@@ -18,11 +18,17 @@
   		<tr>
   			<th>Sender</th>
   			<th>Message</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>IP</th>
   		</tr>
   		<% for(i = 0; i < JSON.parse(data).length; i++) { %>
   			<tr>
 	  			<td><%= JSON.parse(data)[i].sender %></td>
 	  			<td><%= JSON.parse(data)[i].message %></td>
+          <td><%= JSON.parse(data)[i].date %></td>
+          <td><%= JSON.parse(data)[i].time %></td>
+          <td><%= JSON.parse(data)[i].ip %></td>
 	  		<tr>
   		<% } %>
   </div>
