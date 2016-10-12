@@ -1,6 +1,5 @@
 var express = require('express');
 var fs = require('fs');
-var jsonfile = require('jsonfile');
 
 // Initializing an instance of express
 var app = express();
