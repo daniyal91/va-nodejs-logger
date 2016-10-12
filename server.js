@@ -34,7 +34,7 @@ app.get('/record_log',function(req,res){
 	var sender = req.query.sender;
 	var date = new Date();
 	var currentDate = date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
-	var currentTime = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+	var currentTime = (date.getHours()-4) + ":" + date.getMinutes() + ":" + date.getSeconds();
 	var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
 
 	var msgData = {message: message, sender: sender, date: currentDate, time: currentTime, ip: ip};
